@@ -6,14 +6,15 @@ RUN mkdir -p /usr/src/logs
 WORKDIR /usr/src/app
 
 COPY requirements/requirements.txt /usr/src/app/requirements/
-COPY requirements/django_apps.txt /usr/src/app/requirements/
-
-RUN pip install --no-cache-dir r requirements/requirements.txt
+RUN pip install --no-cache-dir -r requirements/requirements.txt
 
 ADD . /usr/src/app
 
-EXPOSE 8080
+EXPOSE 9000
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/src
 
-ENTRYPOINT ["/usr/src/app/docker/docker-entrypoint.sh"]
+RUN python -m gunicorn --bind 0.0.0.0:9000 mysite.asgi:application -k uvicorn.workers.UvicornWorker &
+RUN sleep 10
+
+# ENTRYPOINT ["/usr/src/app/docker/docker-entrypoint.sh"]
