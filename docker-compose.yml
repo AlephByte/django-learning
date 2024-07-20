@@ -1,0 +1,20 @@
+version: '2'
+services:
+    web:
+        build:
+            dockerfile: docker/Dockerfile
+            context: .
+        ports:
+            - "8080:8080"
+        volumes:
+            - .:/usr/src/app
+            # - ../django-corp-common:/usr/src/django-corp-common
+            # - ../django-corp-home:/usr/src/django-corp-home
+            # - ../django-corp-hotels:/usr/src/django-corp-hotels
+            # - ../django-corp-results:/usr/src/django-corp-results
+            # - ../django-corp-users:/usr/src/django-corp-users
+            # - ../roomdi.commons:/usr/src/roomdi.commons
+        environment:
+            # - DJANGO_SETTINGS_MODULE=main.settings.dev
+        command:
+            - dev
