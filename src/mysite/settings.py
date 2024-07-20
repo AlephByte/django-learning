@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'django.alephbyte.com',
     'localhost',
-    '127.0.0.1',
 ]
 
 
@@ -80,14 +79,19 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # IsbHD5prrrzZdlkoXEFCNEzdmPh7ltADfKcTdyfGcCq1iQWPcfQJ5dnDz3GuTQLs
+    # @
+    # o0ksocc
+    # 3306
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
+        'USER': 'mysql',
+        'PASSWORD': 'IsbHD5prrrzZdlkoXEFCNEzdmPh7ltADfKcTdyfGcCq1iQWPcfQJ5dnDz3GuTQLs',
+        'HOST': 'o0ksocc',
         'PORT': '3306',
-    }
+    },
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
