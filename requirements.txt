@@ -1,2 +1,11 @@
 Django==4.2
 mysqlclient==2.0.3
+
+# Fast and reliable ASGI server
+uvicorn==0.30.3
+# Robust and secure HTTP server
+gunicorn==22.0.0
+
+# launch command:
+# cd mysite
+# python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker
