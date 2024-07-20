@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'https://django.alephbyte.com',
+    'http://django.alephbyte.com',
 ]
 
 
