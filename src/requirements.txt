@@ -6,6 +6,9 @@ uvicorn==0.30.3
 # Robust and secure HTTP server
 gunicorn==22.0.0
 
+# WhiteNoise
+whitenoise==6.7.0
+
 # launch command:
 # cd mysite
 # python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker

@@ -9,11 +9,12 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PARENT_DIR = BASE_DIR.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,8 +26,14 @@ SECRET_KEY = 'django-insecure-=u2$irklrdo-2&o)_no%2bs)-)3w0(@78@$nu4au+z7wz$j&^!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'django.alephbyte.com',
+    'localhost',
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://django.alephbyte.com',
+]
 
 # Application definition
 
@@ -49,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -76,14 +84,19 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # IsbHD5prrrzZdlkoXEFCNEzdmPh7ltADfKcTdyfGcCq1iQWPcfQJ5dnDz3GuTQLs
+    # @
+    # o0ksocc
+    # 3306
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
+        'NAME': 'default',
+        'USER': 'mysql',
+        'PASSWORD': 'IsbHD5prrrzZdlkoXEFCNEzdmPh7ltADfKcTdyfGcCq1iQWPcfQJ5dnDz3GuTQLs',
+        'HOST': 'o0ksocc',
         'PORT': '3306',
-    }
+    },
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
@@ -125,7 +138,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC SETTINGS
+STATIC_ROOT = os.path.join(PARENT_DIR, 'staticfiles')  # changed from 'static'
+STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # ensure this directory exists
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
