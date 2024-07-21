@@ -24,7 +24,7 @@ PARENT_DIR = BASE_DIR.parent
 SECRET_KEY = 'django-insecure-=u2$irklrdo-2&o)_no%2bs)-)3w0(@78@$nu4au+z7wz$j&^!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'django.alephbyte.com',
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -138,16 +139,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # STATIC SETTINGS
-STATIC_ROOT = os.path.join(PARENT_DIR, 'static')
-ROOT_URLCONF = 'mysite.urls'
+STATIC_ROOT = os.path.join(PARENT_DIR, 'staticfiles')  # changed from 'static'
 STATIC_URL = '/static/'
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # ensure this directory exists
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
