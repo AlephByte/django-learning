@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=u2$irklrdo-2&o)_no%2bs)-)3w0(@78@$nu4au+z7wz$j&^!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'django.alephbyte.com',
+    '127.0.0.1',
     'localhost',
 ]
 
@@ -84,18 +84,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # IsbHD5prrrzZdlkoXEFCNEzdmPh7ltADfKcTdyfGcCq1iQWPcfQJ5dnDz3GuTQLs
-    # @
-    # o0ksocc
-    # 3306
-
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'default',
         'USER': 'mysql',
         'PASSWORD': 'IsbHD5prrrzZdlkoXEFCNEzdmPh7ltADfKcTdyfGcCq1iQWPcfQJ5dnDz3GuTQLs',
-        'HOST': 'o0ksocc',
-        'PORT': '3306',
+        'HOST': '37.27.192.65',
+        'PORT': '9000',
     },
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
